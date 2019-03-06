@@ -16,6 +16,8 @@
     - nrclone
     - ngcrypt
     - ngdrive
+    - nodrive
+    - nocrypt
     - npgblitz
     - npgmove
     - npgunion
@@ -25,6 +27,8 @@
     - pgmove
     - sgcrypt
     - sgdrive
+    - sodrive
+    - socrypt
     - spgblitz
     - spgmove
     - spgunion
@@ -48,6 +52,8 @@
     - nrclone
     - ngcrypt
     - ngdrive
+    - nodrive
+    - nocrypt
     - npgblitz
     - npgmove
     - npgunion
@@ -57,6 +63,8 @@
     - pgmove
     - sgcrypt
     - sgdrive
+    - sodrive
+    - socrypt
     - spgblitz
     - spgmove
     - spgunion
