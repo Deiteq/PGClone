@@ -31,6 +31,11 @@
         path: 'remotes = gdrive: gcrypt: {{hdpath.stdout}}/move'
       when: transport55.stdout == "emove"
 
+    - name: 'If Fact Matches - Encrypted Multi Drive Move'
+      set_fact:
+        path: 'remotes = gdrive: odrive: gcrypt: ocrypt: {{hdpath.stdout}}/move'
+      when: transport55.stdout == "emultimove"
+
     - name: 'If Fact Matches - UnEncrypted Blitz'
       set_fact:
         path: 'remotes = gdrive: tdrive: {{hdpath.stdout}}/move'
@@ -144,6 +149,7 @@
             name: pgmove
 
       when: (transport55.stdout == "emove") or
+        (transport55.stdout == "emultimove") or
         (transport55.stdout == "umove")
 
     - name: Install PGUnion Script
