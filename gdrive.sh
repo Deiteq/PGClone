@@ -64,6 +64,7 @@ question1 () {
   transport=$(cat /var/plexguide/pgclone.transport)
   gstatus=$(cat /var/plexguide/gdrive.pgclone)
   tstatus=$(cat /var/plexguide/tdrive.pgclone)
+  ostatus=$(cat /var/plexguide/odrive.pgclone)
   transportdisplay
   mkdir -p /opt/appdata/pgblitz/keys/processed/
   keynum=$(ls /opt/appdata/pgblitz/keys/processed/ | wc -l)
@@ -239,7 +240,9 @@ elif [ "$typed" == "4" ]; then
       echo "gdrive" > /var/plexguide/rclone/deploy.version
       removepgservices
       deploygdrivecheck
+      deployodrivecheck
       ansible-playbook /opt/pgclone/gdrive.yml
+      ansible-playbook /opt/pgclone/odrive.yml
       ansible-playbook /opt/pgclone/pgunion.yml
       question1
     elif [ "$transport" == "PG Move /w Encryption" ]; then
@@ -248,8 +251,12 @@ elif [ "$typed" == "4" ]; then
       removepgservices
       deploygdrivecheck
       deploygcryptcheck
+      deployodrivecheck
+      deployocryptcheck
       ansible-playbook /opt/pgclone/gdrive.yml
       ansible-playbook /opt/pgclone/gcrypt.yml
+      ansible-playbook /opt/pgclone/odrive.yml
+      ansible-playbook /opt/pgclone/ocrypt.yml
       ansible-playbook /opt/pgclone/pgunion.yml
       question1
     fi
@@ -273,6 +280,7 @@ variable /var/plexguide/pgclone.secret ""
 variable /var/plexguide/rclone/deploy.version "null"
 variable /var/plexguide/pgclone.transport "PG Move /w No Encryption"
 variable /var/plexguide/gdrive.pgclone "⚠️  Not Activated"
+variable /var/plexguide/odrive.pgclone "⚠️  Not Activated"
 variable /var/plexguide/tdrive.pgclone "⚠️  Not Activated"
 variable /var/plexguide/move.bw  "9"
 variable /var/plexguide/blitz.bw  "1000"
