@@ -14,6 +14,8 @@
       - {name: pgdrive.service}
       - {name: gdrive.service}
       - {name: gcrypt.service}
+      - {name: odrive.service}
+      - {name: ocrypt.service}
       - {name: tdrive.service}
       - {name: tcrypt.service}
       - {name: supertransfer2.service}
