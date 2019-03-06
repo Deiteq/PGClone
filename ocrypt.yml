@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Title:      PGBlitz (Reference Title File)
+# Author(s):  Admin9705 - Deiteq
+# URL:        https://pgblitz.com - http://github.pgblitz.com
+# GNU:        General Public License v3.0
+################################################################################
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Install OCrypt Service
+      template:
+        src: /opt/pgclone/templates/ocrypt.service
+        dest: /etc/systemd/system/ocrypt.service
+        force: yes
+
+    - name: Reload OCrypt Service
+      systemd:
+        daemon_reload: yes
+        enabled: yes
+        state: reloaded
+        name: ocrypt
+
+    - name: Create OCrypt Folders
+      file: 'path={{item}} state=directory mode=0775 owner=1000 group=1000'
+      with_items:
+        - /mnt/ocrypt
