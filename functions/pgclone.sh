@@ -66,6 +66,8 @@ elif [[ "$typed" == "N" || "$typed" == "n" ]]; then mountsmenu
     rclone config delete gcrypt --config /opt/appdata/plexguide/rclone.conf; fi
     if [ "$type" == "tdrive" ]; then
     rclone config delete tcrypt --config /opt/appdata/plexguide/rclone.conf; fi
+    if [ "$type" == "odrive" ]; then
+    rclone config delete ocrypt --config /opt/appdata/plexguide/rclone.conf; fi
   fi
 
 tee <<-EOF
@@ -148,6 +150,9 @@ deploychecks
 
 if [[ "$transport" == "PG Move /w No Encryption" || "$transport" == "PG Move /w Encryption" ]]; then
   display=""
+elif
+  if [ "$type" == "odrive" ]; then
+  display="OTHERDRIVE: $otherdrive
 else
   if [ "$type" == "tdrive" ]; then
   display="TEAMDRIVE: $teamdrive
@@ -221,6 +226,7 @@ if [ "$teamdrive" == "" ]; then dteamdrive="NOT SET"; else dteamdrive=$teamdrive
 
 gstatus=$(cat /var/plexguide/gdrive.pgclone)
 tstatus=$(cat /var/plexguide/tdrive.pgclone)
+ostatus=$(cat /var/plexguide/odrive.pgclone)
 
 ###### START
 if [ "$transport" == "PG Move /w No Encryption" ]; then
