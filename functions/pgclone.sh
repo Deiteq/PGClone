@@ -242,6 +242,8 @@ tee <<-EOF
 
 📁 RClone Configuration
 [3] gdrive   : $gstatus
+[4] odrive   : $ostatus
+[4] tdrive   : $tstatus
 [Z] Exit
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -257,6 +259,16 @@ EOF
     mountsmenu
   elif [ "$typed" == "3" ]; then
     type=gdrive
+    statusmount
+    inputphase
+    mountsmenu
+  elif [ "$typed" == "4" ]; then
+    type=odrive
+    statusmount
+    inputphase
+    mountsmenu
+  elif [ "$typed" == "5" ]; then
+    type=tdrive
     statusmount
     inputphase
     mountsmenu
@@ -283,6 +295,8 @@ tee <<-EOF
 
 📁 RClone Configuration
 [4] gdrive   : $gstatus
+[5] odrive   : $ostatus
+[6] tdrive   : $tstatus
 [Z] Exit
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -302,6 +316,18 @@ EOF
   elif [ "$typed" == "4" ]; then
     encpasswdcheck
     type=gdrive
+    statusmount
+    inputphase
+    mountsmenu
+  elif [ "$typed" == "5" ]; then
+    encpasswdcheck
+    type=odrive
+    statusmount
+    inputphase
+    mountsmenu
+  elif [ "$typed" == "6" ]; then
+    encpasswdcheck
+    type=tdrive
     statusmount
     inputphase
     mountsmenu
@@ -329,6 +355,7 @@ tee <<-EOF
 📁 RClone Configuration
 [4] gdrive   : $gstatus
 [5] tdrive   : $tstatus
+[6] odrive   : $ostatus
 [Z] Exit
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -347,6 +374,11 @@ elif [ "$typed" == "3" ]; then
   mountsmenu
 elif [ "$typed" == "4" ]; then
   type=gdrive
+  statusmount
+  inputphase
+  mountsmenu
+elif [ "$typed" == "6" ]; then
+  type=odrive
   statusmount
   inputphase
   mountsmenu
@@ -391,6 +423,7 @@ tee <<-EOF
 📁 RClone Configuration
 [5] gdrive   : $gstatus
 [6] tdrive   : $tstatus
+[7] odrive   : $ostatus
 [Z] Exit
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -413,6 +446,12 @@ elif [ "$typed" == "4" ]; then
 elif [ "$typed" == "5" ]; then
   encpasswdcheck
   type=gdrive
+  statusmount
+  inputphase
+  mountsmenu
+elif [ "$typed" == "7" ]; then
+  encpasswdcheck
+  type=odrive
   statusmount
   inputphase
   mountsmenu
