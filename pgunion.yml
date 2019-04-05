@@ -28,7 +28,7 @@
 
     - name: 'If Fact Matches - Encrypted Move'
       set_fact:
-        path: 'remotes = gdrive: gcrypt: {{hdpath.stdout}}/move'
+        path: 'remotes = gdrive: tdrive: odrive: gcrypt: ocrypt: tcrypt: {{hdpath.stdout}}/move'
       when: transport55.stdout == "emove"
 
     - name: 'If Fact Matches - Encrypted Multi Drive Move'
