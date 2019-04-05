@@ -8,6 +8,10 @@
 defaultvars () {
   touch /var/plexguide/rclone.gdrive
   touch /var/plexguide/rclone.gcrypt
+  touch /var/plexguide/rclone.odrive
+  touch /var/plexguide/rclone.ocrypt
+  touch /var/plexguide/rclone.tdrive
+  touch /var/plexguide/rclone.tcrypt
 }
 
 # FOR START DEPLOYMENT END #####################################################
